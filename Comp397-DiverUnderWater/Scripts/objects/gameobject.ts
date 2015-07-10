@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../../managers/assets.ts" />
+
 module objects {
     // Cloud Class ................
     export class GameObject extends createjs.Bitmap {

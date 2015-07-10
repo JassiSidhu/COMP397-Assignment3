@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../../managers/assets.ts" />
+
 module objects {
     // Shell Class .......................
     export class Shell extends objects.GameObject {

@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../../managers/assets.ts" />
+
 module objects {
     // Diver Class ..............................
     export class Diver extends objects.GameObject {

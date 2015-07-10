@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../../managers/assets.ts" />
+
 module objects {
     // Shark Class ......................
     export class Shark extends objects.GameObject {

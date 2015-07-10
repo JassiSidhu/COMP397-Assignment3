@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../../managers/assets.ts" />
+
 module objects {
     // Ocean Class ......................
     export class Ocean extends createjs.Bitmap {
