@@ -24,6 +24,8 @@ module managers {
                 createjs.Sound.play(gameObject.sound);
                 if (gameObject.name == "shark") {
                     scoreboard.lives--;
+                    if (scoreboard.lives == 0)
+                        changeState(2);
                     //console.log(scoreboard.lives);
                 }
                 if (gameObject.name == "shell") {

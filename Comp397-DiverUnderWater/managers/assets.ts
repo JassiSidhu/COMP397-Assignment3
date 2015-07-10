@@ -7,6 +7,10 @@
             { id: "diver", src: "assets/images/diver.png" },
             { id: "shell", src: "assets/images/shell1.png" },
             { id: "shark", src: "assets/images/shark.png" },
+            { id: "play", src: "assets/images/play.png" },
+            { id: "tryAgain", src: "assets/images/tryAgain.png" },
+            { id: "gameOver", src: "assets/images/gameOver.png" },
+            { id: "start", src: "assets/images/start.png" },
             { id: "power", src: "assets/audio/Powerup.wav" },
             { id: "eat", src: "assets/audio/thunder.ogg" },
             { id: "breath", src: "assets/audio/breathing.mp3" }

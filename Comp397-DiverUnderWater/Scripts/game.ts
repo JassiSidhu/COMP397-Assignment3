@@ -12,10 +12,15 @@
 /// <reference path="objects/diver.ts" />
 /// <reference path="objects/shell.ts" />
 /// <reference path="objects/shark.ts" />
+/// <reference path="objects/button.ts" />
+/// <reference path="objects/label.ts" />
 /// <reference path="objects/scoreboard.ts" />
 
-
 /// <reference path="../managers/collision.ts" />
+
+/// <reference path="../states/start.ts" />
+/// <reference path="../states/play.ts" />
+/// <reference path="../states/gameover.ts" />
 
 
 // Game Framework Variables
@@ -30,9 +35,25 @@ var shell: objects.Shell;
 var sharks: objects.Shark[] = [];
 var scoreboard: objects.ScoreBoard;
 
+//state variables
+var currentState;
+
 //Game Managers
 var assets: managers.Asset;
-var collision : managers.Collision;
+var collision: managers.Collision;
+
+//Three game states
+var playState: states.Play;
+var startState: states.StartState;
+var gameOverState: states.GameOver;
+
+var start: createjs.Bitmap;
+var gameOver: createjs.Bitmap;
+
+//buttons
+var tryButton: objects.Button;
+var playButton: objects.Button;
+
 
 // Preloader Function
 function preload() {
@@ -72,49 +93,51 @@ function setupStats() {
 function gameLoop() {
     stats.begin(); // Begin measuring
 
-    ocean.update();
-    diver.update();
-    shell.update();
-
-    for (var shark = 0; shark < 3; shark++) {
-        sharks[shark].update();
-        collision.check(sharks[shark]);
-    }
-
-    collision.check(shell);
-    scoreboard.update();
+    currentState.update();
 
     stage.update();
 
     stats.end(); // end measuring
 }
 
+//play function
+function playButtonClicked(event: createjs.MouseEvent) {
+    stage.removeAllChildren();
+    changeState(1);
+
+}
+
+//play function
+function tryButtonClicked(event: createjs.MouseEvent) {
+    stage.removeAllChildren();
+    changeState(1);
+
+}
+
+function changeState(state: number) {
+    switch (state) {
+        case 0:
+            startState = new states.StartState();
+            currentState = startState;
+            break;
+        case 1:
+            playState = new states.Play();
+            currentState = playState;
+            break;
+        case 2:
+            gameOverState = new states.GameOver();
+            currentState = gameOverState;
+            break;
+    }
+}
+
 
 
 // Our Main Game Function
 function main() {
-    
-    //add ocean object to stage
-    ocean = new objects.Ocean(assets.loader.getResult("ocean"));
-    stage.addChild(ocean);
-
-    //add shell object to stage
-    shell = new objects.Shell(assets.loader.getResult("shell"));
-    stage.addChild(shell);
-
-    // add diver object to stage
-    diver = new objects.Diver(assets.loader.getResult("diver"));
-    stage.addChild(diver);
-
-    // add 3 shark objects to stage
-    for (var shark = 0; shark < 3; shark++) {
-        sharks[shark] = new objects.Shark(assets.loader.getResult("shark"));
-        stage.addChild(sharks[shark]);
-    }
-
-    scoreboard = new objects.ScoreBoard();
-
-    collision = new managers.Collision();
+  
+    startState = new states.StartState();
+    currentState = startState;
 
 
     console.log("Game running");

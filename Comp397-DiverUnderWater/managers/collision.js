@@ -19,6 +19,8 @@ var managers;
                     createjs.Sound.play(gameObject.sound);
                     if (gameObject.name == "shark") {
                         scoreboard.lives--;
+                        if (scoreboard.lives == 0)
+                            changeState(2);
                     }
                     if (gameObject.name == "shell") {
                         scoreboard.score += 100;
