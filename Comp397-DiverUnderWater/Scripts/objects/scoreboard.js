@@ -1,6 +1,7 @@
 /// <reference path="../typings/easeljs/easeljs.d.ts" />
 var objects;
 (function (objects) {
+    //SCOREBOARD CLASS
     var ScoreBoard = (function () {
         //Constructor...
         function ScoreBoard() {
@@ -13,6 +14,7 @@ var objects;
             stage.addChild(this.liveLabel);
             stage.addChild(this.scoreLabel);
         }
+        //public methods........
         ScoreBoard.prototype.update = function () {
             this.liveLabel.text = "Live:  " + this.lives;
             this.scoreLabel.text = "Scores:  " + this.score;

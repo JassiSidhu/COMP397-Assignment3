@@ -1,7 +1,9 @@
-﻿/// <reference path="../../managers/assets.ts" />
+﻿/// <reference path="../managers/assets.ts" />
 
 module objects {
+    //BUTTON CLASS..........
     export class Button extends createjs.Bitmap {
+        //CONSTRUCTOR.........
         constructor(imageString: string, x: number, y: number, centered: boolean) {
             super(imageString);
 
@@ -12,17 +14,18 @@ module objects {
             this.setButtonListeners();
         }
 
-        setButtonListeners() {
+        //PUBLIC METHODS
+        public setButtonListeners() {
             this.cursor = 'pointer';
             this.on('rollover', this.onButtonOver);
             this.on('rollout', this.onButtonOut);
         }
 
-        onButtonOver() {
+        public onButtonOver() {
             this.alpha = 0.8;
         }
 
-        onButtonOut() {
+        public onButtonOut() {
             this.alpha = 1;
         }
     }

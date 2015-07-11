@@ -1,10 +1,10 @@
 ﻿/// <reference path="../managers/assets.ts" />
-module states
-{
-    export class GameOver
-    {
-        constructor()
-        {
+
+module states {
+    //STARTSTATE CLASS
+    export class StartState {
+        //CONSTRUCTOR.........
+        constructor() {
             //add ocean object to stage
             ocean = new objects.Ocean(assets.loader.getResult("ocean"));
             stage.addChild(ocean);
@@ -19,22 +19,27 @@ module states
                 stage.addChild(sharks[shark]);
             }
 
+            //Add start objects....
+            start = new createjs.Bitmap(assets.loader.getResult("start"));
+            stage.addChild(start);
 
-            gameOver = new createjs.Bitmap(assets.loader.getResult("gameOver"));
-            stage.addChild(gameOver);
+            instructionsButton = new objects.Button(assets.loader.getResult("instructions"), 240, 340, false);
+            stage.addChild(instructionsButton);
+            instructionsButton.on("click", instructionsClicked);
 
-            tryButton = new objects.Button(assets.loader.getResult("tryAgain"), 440, 320, false);
-            stage.addChild(tryButton);
-            tryButton.on("click", tryButtonClicked);
+            playButton = new objects.Button(assets.loader.getResult("play"), 240, 200, false);
+            stage.addChild(playButton);
+            playButton.on("click", playButtonClicked);
         }
 
-        update()
-        {
+        //PUBLIC METHODS........
+        public update() {
             ocean.update();
             shell.update();
             for (var shark = 0; shark < 3; shark++) {
                 sharks[shark].update();
             }
         }
+       
     }
 } 

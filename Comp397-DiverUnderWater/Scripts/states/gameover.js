@@ -1,7 +1,9 @@
 /// <reference path="../managers/assets.ts" />
 var states;
 (function (states) {
+    // GAMEOVER CLASS...
     var GameOver = (function () {
+        //CONSTRUCTOR...
         function GameOver() {
             //add ocean object to stage
             ocean = new objects.Ocean(assets.loader.getResult("ocean"));
@@ -14,12 +16,14 @@ var states;
                 sharks[shark] = new objects.Shark(assets.loader.getResult("shark"));
                 stage.addChild(sharks[shark]);
             }
+            // Add objects of game over stage
             gameOver = new createjs.Bitmap(assets.loader.getResult("gameOver"));
             stage.addChild(gameOver);
             tryButton = new objects.Button(assets.loader.getResult("tryAgain"), 440, 320, false);
             stage.addChild(tryButton);
             tryButton.on("click", tryButtonClicked);
         }
+        //PUBLIC METHODS......
         GameOver.prototype.update = function () {
             ocean.update();
             shell.update();

@@ -1,4 +1,4 @@
-﻿/// <reference path="../../managers/assets.ts" />
+﻿/// <reference path="../managers/assets.ts" />
 
 module objects {
     // Diver Class ..............................

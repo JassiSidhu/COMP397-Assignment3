@@ -1,6 +1,6 @@
 ﻿/// <reference path="../typings/easeljs/easeljs.d.ts" />
 module objects {
-
+    //SCOREBOARD CLASS
     export class ScoreBoard {
         //Public properties..
         public lives: number = 5;
@@ -20,8 +20,9 @@ module objects {
             stage.addChild(this.scoreLabel);
 
         }
-
-        update()
+        
+        //public methods........
+        public update()
         {
             this.liveLabel.text = "Live:  " + this.lives;
             this.scoreLabel.text = "Scores:  " + this.score;

@@ -1,6 +1,8 @@
 ﻿
 module objects {
+    //LABEL CLASS>........
     export class Label extends createjs.Text {
+        //CONSTRUCTOR.......
         constructor(x: number, y: number, labelText: string) {
             super(labelText, "40 px Consolas","#FFFFFF00");
             this.regX = this.getBounds().width / 2;

@@ -1,4 +1,4 @@
-/// <reference path="../../managers/assets.ts" />
+/// <reference path="../managers/assets.ts" />
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -7,8 +7,10 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
+    //BUTTON CLASS..........
     var Button = (function (_super) {
         __extends(Button, _super);
+        //CONSTRUCTOR.........
         function Button(imageString, x, y, centered) {
             _super.call(this, imageString);
             this.regX = this.getBounds().width / 2;
@@ -17,6 +19,7 @@ var objects;
             this.y = y;
             this.setButtonListeners();
         }
+        //PUBLIC METHODS
         Button.prototype.setButtonListeners = function () {
             this.cursor = 'pointer';
             this.on('rollover', this.onButtonOver);

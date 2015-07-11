@@ -6,8 +6,10 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
+    //LABEL CLASS>........
     var Label = (function (_super) {
         __extends(Label, _super);
+        //CONSTRUCTOR.......
         function Label(x, y, labelText) {
             _super.call(this, labelText, "40 px Consolas", "#FFFFFF00");
             this.regX = this.getBounds().width / 2;

@@ -1,8 +1,10 @@
 ﻿/// <reference path="../managers/assets.ts" />
 module states
 {
-    export class Play
+    // GAMEOVER CLASS...
+    export class GameOver
     {
+        //CONSTRUCTOR...
         constructor()
         {
             //add ocean object to stage
@@ -13,41 +15,29 @@ module states
             shell = new objects.Shell(assets.loader.getResult("shell"));
             stage.addChild(shell);
 
-            // add diver object to stage
-            diver = new objects.Diver(assets.loader.getResult("diver"));
-            stage.addChild(diver);
-
             // add 3 shark objects to stage
             for (var shark = 0; shark < 3; shark++) {
                 sharks[shark] = new objects.Shark(assets.loader.getResult("shark"));
                 stage.addChild(sharks[shark]);
             }
 
-            //add scoreboard
-            scoreboard = new objects.ScoreBoard();
+            // Add objects of game over stage
+            gameOver = new createjs.Bitmap(assets.loader.getResult("gameOver"));
+            stage.addChild(gameOver);
 
-            //add collision manager
-            collision = new managers.Collision();
+            tryButton = new objects.Button(assets.loader.getResult("tryAgain"), 440, 320, false);
+            stage.addChild(tryButton);
+            tryButton.on("click", tryButtonClicked);
         }
 
-           
-            update() {
+        //PUBLIC METHODS......
+        public update()
+        {
             ocean.update();
-            diver.update();
             shell.update();
-
             for (var shark = 0; shark < 3; shark++) {
                 sharks[shark].update();
-                collision.check(sharks[shark]);
             }
-
-            collision.check(shell);
-
-            scoreboard.update();
-
-            //stage.update();
         }
-
-
     }
 } 
